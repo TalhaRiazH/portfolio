@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talha Riaz — Senior Flutter Developer / Full Stack Developer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080b0f;
+            --surface: #0f1318;
+            --surface2: #141922;
+            --accent: #00e5ff;
+            --accent2: #6d28d9;
+            --accent3: #10b981;
+            --text: #e8edf5;
+            --muted: #7b84a0;
+            --border: rgba(255, 255, 255, 0.07);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+a.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.5;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 5%;
+            background: rgba(8, 11, 15, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 5% 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 60% at 70% 50%, rgba(0, 229, 255, 0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(109, 40, 217, 0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 30% 30% at 80% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+            pointer-events: none;
+        }.confidential-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+}
+.confidential-count {
+    font-family: 'Outfit', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+.confidential-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+}
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.22);
+            border-radius: 100px;
+            padding: 6px 14px;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 28px;
+            animation: fadeUp 0.6s ease both;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent3);
+            box-shadow: 0 0 8px var(--accent3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.75);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(40px, 6vw, 68px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            animation: fadeUp 0.6s 0.1s ease both;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 60%, var(--accent3) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title {
+            font-size: 19px;
+            font-weight: 300;
+            color: var(--muted);
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+            animation: fadeUp 0.6s 0.2s ease both;
+        }
+
+        .hero-desc {
+            font-size: 15.5px;
+            line-height: 1.8;
+            color: #9aa3bd;
+            max-width: 560px;
+            margin-bottom: 40px;
+            animation: fadeUp 0.6s 0.3s ease both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 44px;
+            animation: fadeUp 0.6s 0.4s ease both;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .stat-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            animation: fadeUp 0.6s 0.5s ease both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #080b0f;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(0, 229, 255, 0.4);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .btn-ghost:hover {
+            background: var(--surface);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Floating card */
+        .hero-card {
+            position: absolute;
+            right: 6%;
+            transform: translateY(-50%);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
+            width: 510px;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: fadeUp 0.8s 0.6s ease both;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 960px) {
+            .hero-card {
+                display: none;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                row-gap: 8px;
+            }
+
+            .nav-logo {
+                flex: 1 1 100%;
+                font-size: 15px;
+                line-height: 1.3;
+            }
+        }
+
+        .hero-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .tech-item {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tech-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+        }
+
+        .card-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 16px 0;
+        }
+
+        .avail-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: var(--accent3);
+            font-weight: 500;
+        }
+
+        /* MAIN */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 90px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 48px;
+        }
+
+        .section-title em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* EXPERIENCE */
+        .exp-grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .exp-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exp-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--accent2));
+            border-radius: 0 2px 2px 0;
+        }
+
+        .exp-card:hover {
+            border-color: rgba(0, 229, 255, 0.25);
+            transform: translateX(4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .exp-company {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .exp-role {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        .exp-desc {
+            color: #9aa3bd;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .exp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 16px;
+        }
+
+        .exp-tag {
+            background: rgba(0, 229, 255, 0.07);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .exp-duration {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .duration-badge {
+            display: inline-block;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: border-color 0.3s;
+        }
+
+        .skill-category:hover {
+            border-color: rgba(0, 229, 255, 0.2);
+        }
+
+        .skill-cat-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-cat-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .skill-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-pill {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 13px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.2s;
+        }
+
+        .skill-pill:hover {
+            border-color: rgba(0, 229, 255, 0.35);
+            color: var(--accent);
+            background: rgba(0, 229, 255, 0.05);
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 26px;
+            transition: all 0.3s;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.04), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 16px;
+        }
+
+        .project-card:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(0, 229, 255, 0.1);
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+
+        .project-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.12), rgba(109, 40, 217, 0.12));
+            border: 1px solid rgba(0, 229, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .project-arrow {
+            color: var(--muted);
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover .project-arrow {
+            color: var(--accent);
+            transform: translate(3px, -3px);
+        }
+
+        .project-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            font-size: 13.5px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-tech span {
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            color: var(--accent3);
+            padding: 3px 9px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .live-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent3);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 20px;
+            padding: 3px 8px;
+            margin-top: 14px;
+        }
+
+        .store-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .store-links a {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            border-radius: 8px;
+            padding: 6px 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .store-links a:hover {
+            background: rgba(0, 229, 255, 0.08);
+        }
+
+        .live-dot-sm {
+            width: 5px;
+            height: 5px;
+            background: var(--accent3);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        /* EDUCATION */
+        .edu-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 24px;
+            align-items: center;
+            transition: border-color 0.3s;
+        }
+
+        .edu-card:hover {
+            border-color: rgba(0, 229, 255, 0.25);
+        }
+
+        .edu-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.12), rgba(109, 40, 217, 0.18));
+            border: 1px solid rgba(0, 229, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .edu-degree {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .edu-school {
+            color: var(--accent);
+            font-size: 15px;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .edu-period {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .contact-value {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 5%;
+            text-align: center;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--surface2);
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 24px;
+            }
+
+            .edu-card {
+                grid-template-columns: 1fr;
+            }
+
+            .exp-card {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">Senior Flutter Developer / Full Stack Developer</div>
+        <ul class="nav-links">
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="dot"></span>
+                Available for new opportunities · Lahore, Pakistan
+            </div>
+            <h1>Talha<br><span>Muhammad Riaz</span></h1>
+            <p class="hero-title">Senior Flutter Developer / Full Stack Developer</p>
+            <p class="hero-desc">
+                I build polished, high-performance cross-platform mobile applications — from real-time tracking systems
+                and AI-powered keyboards to election platforms and ecommerce stores. 4+ years delivering apps that live
+                on the App Store and Play Store.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-num">4+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">20+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">14+</span>
+                    <span class="stat-label">Live on Stores</span>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">✉ Get In Touch</a>
+                <a href="#projects" class="btn-ghost">View Projects →</a>
+            </div>
+        </div>
+
+        <!-- Floating card -->
+        <div class="hero-card">
+            <p class="hero-card-title">Core Stack</p>
+            <div class="tech-stack">
+        
+                <div class="tech-item"><span class="tech-dot" style="background:#54c5f8"></span>Flutter</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#00b4ab"></span>Dart</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#ffca28"></span>Firebase</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#4285f4"></span>Google Maps</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#6d28d9"></span>GetX</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#00e5ff"></span>Bloc</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#10b981"></span>Provider</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#f59e0b"></span>REST APIs</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#a78bfa"></span>MQTT</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#ef4444"></span>Push Notifications</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#8b5cf6"></span>Payment Gateways</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#3B82F6"></span>Realtime DB</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#ec4899"></span>Cloud Storage</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#14b8a6"></span>Cloud Functions</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#f97316"></span>Native Android</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#a78bfa"></span>OpenAI API</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#06b6d4"></span>Socket.io</div>
+                  <div class="tech-item"><span class="tech-dot" style="background:#0175C2"></span>Clean Architecture</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#22c55e"></span>Responsive UI</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#e11d48"></span>API Integration</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#0ea5e9"></span>JSON Parsing</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#6366f1"></span>MVVM Architecture</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#f43f5e"></span>Authentication Flow
+                </div>
+                <div class="tech-item"><span class="tech-dot" style="background:#84cc16"></span>OTP Verification</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#14b8a6"></span>Form Validation</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#f59e0b"></span>App Optimization</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#3b82f6"></span>Debugging</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#9333ea"></span>Error Handling</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#06b6d4"></span>Async Programming</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#ef4444"></span>State Management</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#10b981"></span>Reusable Widgets</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#8b5cf6"></span>Custom Animations</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#f97316"></span>Play Store Deployment
+                </div>
+        
+                <div class="tech-item"><span class="tech-dot" style="background:#dc2626"></span>Git & GitHub</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#0891b2"></span>Postman</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#65a30d"></span>Local Storage
+                </div>
+                <div class="tech-item"><span class="tech-dot" style="background:#c026d3"></span>SharedPreferences</div>
+                <div class="tech-item"><span class="tech-dot" style="background:#ea580c"></span>WebView Integration
+                </div>
+                <div class="tech-item"><span class="tech-dot" style="background:#16a34a"></span>CI/CD Basics</div>
+            </div>
+            <div class="card-divider"></div>
+            <div class="avail-badge">
+                <span class="dot"></span>
+                Open to remote &amp; on-site work
+            </div>
+        </div>
+    </section>
+
+    <main>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <div class="reveal">
+                <p class="section-label">Where I've Worked</p>
+                <h2 class="section-title">Professional <em>Experience</em></h2>
+            </div>
+            <div class="exp-grid">
+
+                <div class="exp-card reveal">
+                    <div>
+                        <div class="exp-company">BPO Brigade</div>
+                        <div class="exp-role">Senior Full Stack Developer</div>
+                        <div class="exp-desc">
+                            Working full time as a Senior Full Stack Developer, owning features from requirements
+                            through production. Building and maintaining scalable applications across the frontend and
+                            backend, integrating APIs, and collaborating with the team to ship reliable, high-quality
+                            software.
+                        </div>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Full Stack</span>
+                            <span class="exp-tag">Frontend</span>
+                            <span class="exp-tag">Backend</span>
+                            <span class="exp-tag">REST APIs</span>
+                            <span class="exp-tag">Supabase</span>
+                            <span class="exp-tag">Laravel</span>
+                            <span class="exp-tag">Vercel</span>
+                            <span class="exp-tag">Full Time</span>
+                        </div>
+                    </div>
+                    <div class="exp-duration">
+                        <span class="duration-badge">📅 Jun 2026 – Present · Full Time</span>
+                    </div>
+                </div>
+
+                <div class="exp-card reveal">
+                    <div>
+                        <div class="exp-company">M2Logix</div>
+                        <div class="exp-role">Lead Flutter Developer &amp; Project Manager</div>
+                        <div class="exp-desc">
+                            Led end-to-end mobile application development and managed a development team.
+                            Architected scalable Flutter apps with clean state management patterns (GetX, Bloc,
+                            Provider). Oversaw project delivery from requirement gathering to App Store/Play Store
+                            deployment. Integrated Firebase services, REST APIs, Google Maps, and payment gateways
+                            across 15+ production apps.
+                        </div>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Flutter</span>
+                            <span class="exp-tag">Project Management</span>
+                            <span class="exp-tag">GetX / Bloc</span>
+                            <span class="exp-tag">Firebase</span>
+                            <span class="exp-tag">REST APIs</span>
+                            <span class="exp-tag">Google Maps</span>
+                            <span class="exp-tag">Payment Gateways</span>
+                            <span class="exp-tag">Team Leadership</span>
+                        </div>
+                    </div>
+                    <div class="exp-duration">
+                        <span class="duration-badge">📅 Jan 2024 – May 2026</span>
+                    </div>
+                </div>
+
+                <div class="exp-card reveal">
+                    <div>
+                        <div class="exp-company">Solution Soul</div>
+                        <div class="exp-role">Associate Flutter Developer</div>
+                        <div class="exp-desc">
+                            Developed and maintained cross-platform mobile applications for diverse client requirements.
+                            Worked with Provider and GetX for state management, built UI components following Material
+                            Design guidelines, and integrated Firebase Authentication, Realtime Database, and Cloud
+                            Firestore into production apps.
+                        </div>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Flutter</span>
+                            <span class="exp-tag">Provider</span>
+                            <span class="exp-tag">GetX</span>
+                            <span class="exp-tag">Firebase</span>
+                            <span class="exp-tag">REST APIs</span>
+                            <span class="exp-tag">Push Notifications</span>
+                        </div>
+                    </div>
+                    <div class="exp-duration">
+                        <span class="duration-badge">📅 Jun – Nov 2024</span>
+                    </div>
+                </div>
+
+                <div class="exp-card reveal">
+                    <div>
+                        <div class="exp-company">IVT Technologies</div>
+                        <div class="exp-role">Associate Flutter Developer</div>
+                        <div class="exp-desc">
+                            Started professional Flutter career building mobile apps from scratch. Gained strong
+                            foundations in Dart, Flutter widgets, and Bloc state management. Integrated Google Maps for
+                            location-based features, implemented secure payment methods, and built RESTful API
+                            integrations for real-time applications.
+                        </div>
+                        <div class="exp-tags">
+                            <span class="exp-tag">Flutter</span>
+                            <span class="exp-tag">Bloc</span>
+                            <span class="exp-tag">UI/UX Design</span>
+                            <span class="exp-tag">Firebase</span>
+                            <span class="exp-tag">Google Maps</span>
+                            <span class="exp-tag">Payments</span>
+                        </div>
+                    </div>
+                    <div class="exp-duration">
+                        <span class="duration-badge">📅 Jan 2023 – Jun 2024</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="reveal">
+                <p class="section-label">Technical Expertise</p>
+                <h2 class="section-title">Skills &amp; <em>Technologies</em></h2>
+            </div>
+            <div class="skills-grid">
+
+                <div class="skill-category reveal">
+                    <div class="skill-cat-title">
+                        <span class="skill-cat-icon" style="background:rgba(84,197,248,0.12);">📱</span>
+                        Mobile Development
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Flutter</span>
+                        <span class="skill-pill">Dart</span>
+                        <span class="skill-pill">Native Android</span>
+                        <span class="skill-pill">Kotlin</span>
+                        <span class="skill-pill">Cross-platform</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-cat-title">
+                        <span class="skill-cat-icon" style="background:rgba(109,40,217,0.15);">⚙️</span>
+                        State Management
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">GetX</span>
+                        <span class="skill-pill">Bloc / Cubit</span>
+                        <span class="skill-pill">Provider</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-cat-title">
+                        <span class="skill-cat-icon" style="background:rgba(255,202,40,0.12);">🔥</span>
+                        Firebase
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Authentication</span>
+                        <span class="skill-pill">Realtime Database</span>
+                        <span class="skill-pill">Cloud Firestore</span>
+                        <span class="skill-pill">Cloud Storage</span>
+                        <span class="skill-pill">Cloud Functions</span>
+                        <span class="skill-pill">FCM Notifications</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-cat-title">
+                        <span class="skill-cat-icon" style="background:rgba(66,133,244,0.12);">🗺️</span>
+                        Maps &amp; Location
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Google Maps API</span>
+                        <span class="skill-pill">Geolocation</span>
+                        <span class="skill-pill">Real-time Tracking</span>
+                        <span class="skill-pill">Route Planning</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-cat-title">
+                        <span class="skill-cat-icon" style="background:rgba(245,158,11,0.12);">🔗</span>
+                        APIs &amp; Integration
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">REST APIs</span>
+                        <span class="skill-pill">WebSockets</span>
+                        <span class="skill-pill">Socket.io</span>
+                        <span class="skill-pill">OpenAI API</span>
+                        <span class="skill-pill">Third-party APIs</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-cat-title">
+                        <span class="skill-cat-icon" style="background:rgba(139,92,246,0.12);">💳</span>
+                        Payments &amp; Commerce
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Stripe</span>
+                        <span class="skill-pill">In-app Purchases</span>
+                        <span class="skill-pill">Payment Gateways</span>
+                        <span class="skill-pill">Subscriptions</span>
+                    </div>
+                </div>
+
+                <div class="skill-category reveal">
+                    <div class="skill-cat-title">
+                        <span class="skill-cat-icon" style="background:rgba(16,185,129,0.12);">🎨</span>
+                        UI/UX Design
+                    </div>
+                    <div class="skill-pills">
+                        <span class="skill-pill">Material Design</span>
+                        <span class="skill-pill">Cupertino Widgets</span>
+                        <span class="skill-pill">Custom Animations</span>
+                        <span class="skill-pill">Responsive Layouts</span>
+                        <span class="skill-pill">Figma</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+   <!-- PROJECTS -->
+<section id="projects">
+    <div class="reveal">
+        <p class="section-label">What I've Built</p>
+        <h2 class="section-title">Featured <em>Projects</em></h2>
+    </div>
+    <div class="projects-grid">
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">💰</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Quatta App</div>
+            <div class="project-desc">Personal finance app that scores your money health and assigns one mission at a time across debt, savings, insurance, and investments until your score moves.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Finance</span><span>Missions</span><span>Subscriptions</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+            <div class="store-links">
+                <a href="https://play.google.com/store/search?q=quatta&c=apps&hl=en" target="_blank" rel="noopener noreferrer">Google Play</a>
+                <a href="https://apps.apple.com/us/app/quatta/id6755897717" target="_blank" rel="noopener noreferrer">App Store</a>
+            </div>
+        </div>
+
+        <a href="https://apps.apple.com/us/app/sharecase/id6768441375" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">🏆</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Sharecase</div>
+            <div class="project-desc">Social platform for students to post real achievements, earn mentor endorsements, and build a Highlights portfolio they can share or export.</div>
+            <div class="project-tech">
+                <span>Mobile</span><span>Social</span><span>Profiles</span><span>Portfolio</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.cbrc.carlquizzerapp&hl=en" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">📚</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Carl App</div>
+            <div class="project-desc">Exam review app for aspiring teachers. Practice GenEd and ProfEd questions with the CARL method — comprehension, anticipation, removal, and leverage.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Education</span><span>Quizzes</span><span>Exam Prep</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.m2logix.asanmatch&hl=en" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">💍</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Asan Match</div>
+            <div class="project-desc">Wedding matchmaking app connecting families and individuals through verified profiles. Matchmakers curate compatible proposals with filters for culture, location, and preferences.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Firebase</span><span>Matchmaking</span><span>Chat</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.neerglobal.socialapp&hl=en" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">📍</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Neer</div>
+            <div class="project-desc">Event-based social platform where organizers create events, participants register and join, and sponsors partner for visibility. Google Maps integration for real-time location discovery.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Google Maps</span><span>Firebase</span><span>Event Management</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.growApp.stylist&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">👗</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">OCTO</div>
+            <div class="project-desc">Connects users with personal stylists for fashion guidance via chat or video. Outfit planning, shopping tips, and style support anywhere.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Video Calls</span><span>Chat</span><span>Firebase</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.community.m2logixtech&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">🤝</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Let's Share</div>
+            <div class="project-desc">Community-driven neighborhood platform. Borrow tools, share homemade meals, and build local connections while reducing waste.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Firebase</span><span>Community</span><span>REST API</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.miamigo&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">🐾</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">MiAmigo</div>
+            <div class="project-desc">Smart real-time dog tracker using Google Maps. Locate nearby dogs before visiting parks. Community-driven, safety-first network.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Google Maps</span><span>Real-time</span><span>Firebase</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.gpttype.aikeyboard&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">⌨️</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">TypeEasy AI Keyboard</div>
+            <div class="project-desc">Native Android AI-powered keyboard with intelligent suggestions, auto-corrections, and adaptive writing assistance for productivity.</div>
+            <div class="project-tech">
+                <span>Native Android</span><span>Kotlin</span><span>AI/ML</span><span>Input Method</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=in.a2zshop&hl=en" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">🛒</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">A2Z Ecommerce</div>
+            <div class="project-desc">Complete ecommerce solution with thousands of products, secure payments, order tracking, and exceptional customer experience.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>REST API</span><span>Stripe</span><span>Firebase</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.xeeshan.agent&hl=en" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">🎬</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Nuri Casting</div>
+            <div class="project-desc">Casting platform connecting talent with directors for film, TV, and commercial projects. Submit auditions and manage your career.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Firebase</span><span>Media Upload</span><span>Profiles</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.m2lgx.barbers&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">💈</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Art Salon</div>
+            <div class="project-desc">Dual-panel barber booking app. Users book services and choose staff; admins manage availability, scheduling, and services efficiently.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Firebase</span><span>Booking System</span><span>Admin Panel</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <a href="https://play.google.com/store/apps/details?id=com.userapp.mindscript&hl=en" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
+            <div class="project-header">
+                <div class="project-icon">🎵</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Mind Script</div>
+            <div class="project-desc">Multimedia creative platform for musicians, writers, poets, and filmmakers. Share tracks, spoken word, stories, and music videos.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Media Streaming</span><span>Firebase</span><span>Community</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </a>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">🗳️</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Eday</div>
+            <div class="project-desc">Digital election app for Philadelphia. Secure voting, real-time results, candidate details, and seamless democratic participation.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Secure Auth</span><span>Real-time</span><span>Firebase</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">🚴</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Marshall</div>
+            <div class="project-desc">Live group tracking for bike riders. Monitor member locations in real-time, track routes, and ensure everyone's safety on every ride.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Google Maps</span><span>Real-time</span><span>WebSockets</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">✂️</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Tagha App</div>
+            <div class="project-desc">Business management app for tailors in Saudi Arabia. Order management, client communication, and measurement tracking — streamlined.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Firebase</span><span>Arabic</span><span>REST API</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">🐶</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Paws4Rescue</div>
+            <div class="project-desc">AI-powered animal rescue app using image recognition to identify cats, dogs, and birds by breed. Supports shelters and volunteers.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>AI/ML</span><span>Image Recognition</span><span>Firebase</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">🤖</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">GPT App</div>
+            <div class="project-desc">Mobile ChatGPT integration with seamless AI conversations, instant answers, creative writing, and coding assistance via OpenAI API.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>OpenAI API</span><span>Chat UI</span><span>Firebase</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">💼</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Time Square</div>
+            <div class="project-desc">Freelancing marketplace like Fiverr. Connect businesses with professionals across design, writing, programming, and digital services.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Payments</span><span>REST API</span><span>Messaging</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">🏷️</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Photo Tagger</div>
+            <div class="project-desc">Smart photo organization with custom tags for people, places, events, and objects. Find any photo in your library instantly.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Image Processing</span><span>Local DB</span><span>Search</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">💘</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Look Twice</div>
+            <div class="project-desc">Thoughtful dating app that encourages meaningful connections. Pause, reflect, and truly consider each match — no endless swiping.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Firebase</span><span>Matching Algorithm</span><span>Chat</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">🕌</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Quran365</div>
+            <div class="project-desc">Complete Quran companion app with daily reading plans, verse-by-verse translation, audio recitation, bookmarks, and progress tracking for year-round engagement.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Audio Streaming</span><span>Firebase</span><span>Offline Support</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="project-header">
+                <div class="project-icon">📖</div>
+                <span class="project-arrow">↗</span>
+            </div>
+            <div class="project-name">Nobal Quran</div>
+            <div class="project-desc">Premium Quran reading app with multi-language translations, Tajweed highlighting, beautiful typography, word-by-word meaning, and scholar-verified tafsir content.</div>
+            <div class="project-tech">
+                <span>Flutter</span><span>Multi-language</span><span>Firebase</span><span>REST API</span>
+            </div>
+            <div class="live-tag"><span class="live-dot-sm"></span>Live on Stores</div>
+        </div>
+
+        <div class="project-card confidential reveal visible">
+            <div class="confidential-icon">🔒</div>
+            <div class="confidential-count">13+</div>
+            <div class="confidential-label">More confidential client projects</div>
+        </div>
+
+    </div>
+</section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="reveal">
+                <p class="section-label">Academic Background</p>
+                <h2 class="section-title">My <em>Education</em></h2>
+            </div>
+            <div style="display:grid;gap:20px">
+                <div class="edu-card reveal">
+                    <div class="edu-icon">🎓</div>
+                    <div>
+                        <div class="edu-degree">BSc Computer Science</div>
+                        <div class="edu-school">University of Lahore</div>
+                        <div class="edu-period">2020 – 2024 · Software Engineering · Full-time</div>
+                    </div>
+                    <div
+                        style="text-align:center;background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(0,229,255,0.1));border:1px solid rgba(16,185,129,0.2);border-radius:14px;padding:16px 24px;flex-shrink:0">
+                        <div
+                            style="font-family:'Outfit',sans-serif;font-size:32px;font-weight:800;color:var(--accent3);line-height:1">
+                            2024</div>
+                        <div
+                            style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px">
+                            Grad Year</div>
+                    </div>
+                </div>
+                <div class="edu-card reveal">
+                    <div class="edu-icon">📘</div>
+                    <div>
+                        <div class="edu-degree">Intermediate (ICS)</div>
+                        <div class="edu-school">Aspire Group of Colleges, Lahore</div>
+                        <div class="edu-period">2018 – 2019</div>
+                    </div>
+                    <div
+                        style="text-align:center;background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(0,229,255,0.1));border:1px solid rgba(16,185,129,0.2);border-radius:14px;padding:16px 24px;flex-shrink:0">
+                        <div
+                            style="font-family:'Outfit',sans-serif;font-size:32px;font-weight:800;color:var(--accent3);line-height:1">
+                            A</div>
+                        <div
+                            style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px">
+                            Grade</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="reveal">
+                <p class="section-label">Let's Connect</p>
+                <h2 class="section-title">Get In <em>Touch</em></h2>
+            </div>
+            <div class="contact-grid">
+                <a href="mailto:talhariaz772@gmail.com" class="contact-card reveal">
+                    <div class="contact-icon-wrap"
+                        style="background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.18);">✉️</div>
+                    <div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">talhariaz772@gmail.com</div>
+                    </div>
+                </a>
+                <a href="tel:+923234690399" class="contact-card reveal">
+                    <div class="contact-icon-wrap"
+                        style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.18);">📞</div>
+                    <div>
+                        <div class="contact-label">Phone / WhatsApp</div>
+                        <div class="contact-value">+92 323 4690399</div>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/talha-riaz-7a21a8219/" target="_blank" class="contact-card reveal">
+                    <div class="contact-icon-wrap"
+                        style="background:rgba(10,102,194,0.1);border:1px solid rgba(10,102,194,0.2);">💼</div>
+                    <div>
+                        <div class="contact-label">LinkedIn</div>
+                        <div class="contact-value">Talha Riaz</div>
+                    </div>
+                </a>
+                <a href="#" class="contact-card reveal">
+                    <div class="contact-icon-wrap"
+                        style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);">📍</div>
+                    <div>
+                        <div class="contact-label">Location</div>
+                        <div class="contact-value">Lahore, Punjab, Pakistan</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Designed &amp; crafted with passion · © 2025 Talha Riaz · Senior Flutter Developer / Full Stack Developer</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('visible'), i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
