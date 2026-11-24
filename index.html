@@ -580,6 +580,141 @@ a.project-card:hover {
             background: rgba(0, 229, 255, 0.05);
         }
 
+        /* OPEN SOURCE PACKAGE */
+        .package-spotlight {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 36px 40px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 36px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-spotlight::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 50% 80% at 100% 0%, rgba(0, 229, 255, 0.1), transparent 55%),
+                radial-gradient(ellipse 40% 60% at 0% 100%, rgba(109, 40, 217, 0.08), transparent 50%);
+            pointer-events: none;
+        }
+
+        .package-spotlight > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        .package-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(26px, 3.5vw, 34px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .package-name span {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .package-desc {
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 22px;
+            max-width: 560px;
+        }
+
+        .package-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 26px;
+        }
+
+        .package-meta span {
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.18);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .package-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .package-side {
+            background: rgba(8, 11, 15, 0.55);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .package-side h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .package-side ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .package-side li {
+            font-size: 13.5px;
+            color: var(--muted);
+            line-height: 1.5;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .package-side li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent3);
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+        }
+
+        @media (max-width: 860px) {
+            .package-spotlight {
+                grid-template-columns: 1fr;
+                padding: 28px 24px;
+            }
+        }
+
         /* PROJECTS */
         .projects-grid {
             display: grid;
@@ -905,6 +1040,7 @@ a.project-card:hover {
         <ul class="nav-links">
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#open-source">Open Source</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1224,6 +1360,49 @@ a.project-card:hover {
             </div>
         </section>
 
+    <!-- OPEN SOURCE -->
+    <section id="open-source">
+        <div class="reveal">
+            <p class="section-label">Published on pub.dev</p>
+            <h2 class="section-title">My Own Flutter <em>Package</em></h2>
+        </div>
+        <div class="package-spotlight reveal">
+            <div>
+                <div class="package-kicker">
+                    <span class="dot"></span>
+                    Open Source · Live on pub.dev
+                </div>
+                <h3 class="package-name"><span>flutter_smart_safe_area</span></h3>
+                <p class="package-desc">
+                    A Flutter package I built and published for Android 15+ edge-to-edge.
+                    It detects 3-button vs gesture navigation and applies the safe area automatically —
+                    so content stays clear of system buttons without empty gaps on gesture phones.
+                </p>
+                <div class="package-meta">
+                    <span>Flutter</span>
+                    <span>pub.dev</span>
+                    <span>Open Source</span>
+                    <span>Android 15+</span>
+                    <span>Safe Area</span>
+                </div>
+                <div class="package-actions">
+                    <a class="btn-primary" href="https://pub.dev/packages/flutter_smart_safe_area" target="_blank" rel="noopener noreferrer">View on pub.dev →</a>
+                    <a class="btn-ghost" href="https://pub.dev/packages/flutter_smart_safe_area/install" target="_blank" rel="noopener noreferrer">Install package</a>
+                </div>
+            </div>
+            <div class="package-side">
+                <h3>What it solves</h3>
+                <ul>
+                    <li>Lifts content for 3-button navigation automatically</li>
+                    <li>Stays flush on gesture navigation — no empty gap</li>
+                    <li>Set colors once for the whole app</li>
+                    <li>Override one screen when needed</li>
+                    <li>Works with a normal Scaffold</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
    <!-- PROJECTS -->
 <section id="projects">
     <div class="reveal">
@@ -1231,19 +1410,6 @@ a.project-card:hover {
         <h2 class="section-title">Featured <em>Projects</em></h2>
     </div>
     <div class="projects-grid">
-
-        <a href="https://pub.dev/packages/flutter_smart_safe_area" target="_blank" rel="noopener noreferrer" class="project-card reveal" style="text-decoration:none;color:inherit;display:block;cursor:pointer;">
-            <div class="project-header">
-                <div class="project-icon">📱</div>
-                <span class="project-arrow">↗</span>
-            </div>
-            <div class="project-name">flutter_smart_safe_area</div>
-            <div class="project-desc">Open-source Flutter package for Android 15+ edge-to-edge. Detects 3-button vs gesture navigation and applies the safe area automatically. App-wide colors, one-screen overrides, and normal Scaffold support.</div>
-            <div class="project-tech">
-                <span>Flutter</span><span>pub.dev</span><span>Open Source</span><span>Android 15</span>
-            </div>
-            <div class="live-tag"><span class="live-dot-sm"></span>Live on pub.dev</div>
-        </a>
 
         <div class="project-card reveal">
             <div class="project-header">
