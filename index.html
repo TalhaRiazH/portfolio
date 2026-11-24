@@ -581,6 +581,12 @@ a.project-card:hover {
         }
 
         /* OPEN SOURCE PACKAGE */
+        .package-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
         .package-spotlight {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -1040,7 +1046,7 @@ a.project-card:hover {
         <ul class="nav-links">
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#open-source">Flutter Package</a></li>
+            <li><a href="#open-source">Flutter Packages</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -1361,41 +1367,80 @@ a.project-card:hover {
     <section id="open-source">
         <div class="reveal">
             <p class="section-label">Published on pub.dev</p>
-            <h2 class="section-title">My Own Flutter <em>Package</em></h2>
+            <h2 class="section-title">My Own Flutter <em>Packages</em></h2>
         </div>
-        <div class="package-spotlight reveal">
-            <div>
-                <div class="package-kicker">
-                    <span class="dot"></span>
-                    Open Source · Live on pub.dev
+        <div class="package-list">
+            <div class="package-spotlight reveal">
+                <div>
+                    <div class="package-kicker">
+                        <span class="dot"></span>
+                        Open Source · Live on pub.dev
+                    </div>
+                    <h3 class="package-name"><span>flutter_smart_safe_area</span></h3>
+                    <p class="package-desc">
+                        A Flutter package I built and published for Android 15+ edge-to-edge.
+                        It detects 3-button vs gesture navigation and applies the safe area automatically —
+                        so content stays clear of system buttons without empty gaps on gesture phones.
+                    </p>
+                    <div class="package-meta">
+                        <span>Flutter</span>
+                        <span>pub.dev</span>
+                        <span>Open Source</span>
+                        <span>Android 15+</span>
+                        <span>Safe Area</span>
+                    </div>
+                    <div class="package-actions">
+                        <a class="btn-primary" href="https://pub.dev/packages/flutter_smart_safe_area" target="_blank" rel="noopener noreferrer">View on pub.dev →</a>
+                        <a class="btn-ghost" href="https://pub.dev/packages/flutter_smart_safe_area/install" target="_blank" rel="noopener noreferrer">Install package</a>
+                    </div>
                 </div>
-                <h3 class="package-name"><span>flutter_smart_safe_area</span></h3>
-                <p class="package-desc">
-                    A Flutter package I built and published for Android 15+ edge-to-edge.
-                    It detects 3-button vs gesture navigation and applies the safe area automatically —
-                    so content stays clear of system buttons without empty gaps on gesture phones.
-                </p>
-                <div class="package-meta">
-                    <span>Flutter</span>
-                    <span>pub.dev</span>
-                    <span>Open Source</span>
-                    <span>Android 15+</span>
-                    <span>Safe Area</span>
-                </div>
-                <div class="package-actions">
-                    <a class="btn-primary" href="https://pub.dev/packages/flutter_smart_safe_area" target="_blank" rel="noopener noreferrer">View on pub.dev →</a>
-                    <a class="btn-ghost" href="https://pub.dev/packages/flutter_smart_safe_area/install" target="_blank" rel="noopener noreferrer">Install package</a>
+                <div class="package-side">
+                    <h3>What it solves</h3>
+                    <ul>
+                        <li>Lifts content for 3-button navigation automatically</li>
+                        <li>Stays flush on gesture navigation — no empty gap</li>
+                        <li>Set colors once for the whole app</li>
+                        <li>Override one screen when needed</li>
+                        <li>Works with a normal Scaffold</li>
+                    </ul>
                 </div>
             </div>
-            <div class="package-side">
-                <h3>What it solves</h3>
-                <ul>
-                    <li>Lifts content for 3-button navigation automatically</li>
-                    <li>Stays flush on gesture navigation — no empty gap</li>
-                    <li>Set colors once for the whole app</li>
-                    <li>Override one screen when needed</li>
-                    <li>Works with a normal Scaffold</li>
-                </ul>
+
+            <div class="package-spotlight reveal">
+                <div>
+                    <div class="package-kicker">
+                        <span class="dot"></span>
+                        Open Source · Live on pub.dev
+                    </div>
+                    <h3 class="package-name"><span>flutter_smart_connectivity_plus</span></h3>
+                    <p class="package-desc">
+                        A Flutter package I built and published for offline and flaky networks.
+                        It detects connection loss on every screen, shows banner / dialog / toast UI,
+                        queues actions by id, and retries safely when the network returns — with an automatic
+                        “Back online” toast.
+                    </p>
+                    <div class="package-meta">
+                        <span>Flutter</span>
+                        <span>pub.dev</span>
+                        <span>Open Source</span>
+                        <span>Connectivity</span>
+                        <span>Offline Queue</span>
+                    </div>
+                    <div class="package-actions">
+                        <a class="btn-primary" href="https://pub.dev/packages/flutter_smart_connectivity_plus" target="_blank" rel="noopener noreferrer">View on pub.dev →</a>
+                        <a class="btn-ghost" href="https://pub.dev/packages/flutter_smart_connectivity_plus/install" target="_blank" rel="noopener noreferrer">Install package</a>
+                    </div>
+                </div>
+                <div class="package-side">
+                    <h3>What it solves</h3>
+                    <ul>
+                        <li>Works on every screen from one app-level host</li>
+                        <li>Shows banner, dialog, or toast when internet drops</li>
+                        <li>Auto-closes offline UI and toasts “Back online”</li>
+                        <li>Queues work by id — no duplicate submits</li>
+                        <li>Custom builders for your own offline UI</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
