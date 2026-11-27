@@ -1,0 +1,90 @@
+{
+  "asan": {
+    "name": "com.m2logix.asanmatch",
+    "pkg": "com.m2logix.asanmatch",
+    "store": "https://play.google.com/store/apps/details?id=com.m2logix.asanmatch",
+    "cover": "assets/apps/asan-cover.jpg",
+    "icon": "assets/apps/asan-icon.jpg"
+  },
+  "neer": {
+    "name": "com.neerglobal.socialapp",
+    "pkg": "com.neerglobal.socialapp",
+    "store": "https://play.google.com/store/apps/details?id=com.neerglobal.socialapp",
+    "cover": "assets/apps/neer-cover.jpg",
+    "icon": "assets/apps/neer-icon.jpg"
+  },
+  "octo": {
+    "name": "com.growApp.stylist",
+    "pkg": "com.growApp.stylist",
+    "store": "https://play.google.com/store/apps/details?id=com.growApp.stylist",
+    "cover": "assets/apps/octo-cover.jpg",
+    "icon": "assets/apps/octo-icon.jpg"
+  },
+  "letsshare": {
+    "name": "com.community.m2logixtech",
+    "pkg": "com.community.m2logixtech",
+    "store": "https://play.google.com/store/apps/details?id=com.community.m2logixtech",
+    "cover": "assets/apps/letsshare-cover.jpg",
+    "icon": "assets/apps/letsshare-icon.jpg"
+  },
+  "miamigo": {
+    "name": "com.miamigo",
+    "pkg": "com.miamigo",
+    "store": "https://play.google.com/store/apps/details?id=com.miamigo",
+    "cover": "assets/apps/miamigo-cover.jpg",
+    "icon": "assets/apps/miamigo-icon.jpg"
+  },
+  "typeeasy": {
+    "name": "com.gpttype.aikeyboard",
+    "pkg": "com.gpttype.aikeyboard",
+    "store": "https://play.google.com/store/apps/details?id=com.gpttype.aikeyboard",
+    "cover": "assets/apps/typeeasy-cover.jpg",
+    "icon": "assets/apps/typeeasy-icon.jpg"
+  },
+  "salon": {
+    "name": "com.m2lgx.barbers",
+    "pkg": "com.m2lgx.barbers",
+    "store": "https://play.google.com/store/apps/details?id=com.m2lgx.barbers",
+    "cover": "assets/apps/salon-cover.jpg",
+    "icon": "assets/apps/salon-icon.jpg"
+  },
+  "mind": {
+    "name": "com.mindscript.app",
+    "pkg": "com.mindscript.app",
+    "store": "https://play.google.com/store/apps/details?id=com.mindscript.app",
+    "cover": "assets/apps/mind-cover.jpg",
+    "icon": "assets/apps/mind-icon.jpg"
+  },
+  "a2zplay": {
+    "name": "in.a2zshop",
+    "pkg": "in.a2zshop",
+    "store": "https://play.google.com/store/apps/details?id=in.a2zshop",
+    "cover": "assets/apps/a2zplay-cover.jpg",
+    "icon": "assets/apps/a2zplay-icon.jpg"
+  },
+  "quatta": {
+    "name": "Quatta",
+    "store": "https://apps.apple.com/us/app/quatta/id6755897717?uo=4",
+    "cover": "assets/apps/quatta-cover.jpg",
+    "icon": "assets/apps/quatta-icon.jpg"
+  },
+  "sharecase": {
+    "name": "Sharecase",
+    "store": "https://apps.apple.com/us/app/sharecase/id6768441375?uo=4",
+    "cover": "assets/apps/sharecase-cover.jpg",
+    "icon": "assets/apps/sharecase-icon.jpg"
+  },
+  "nuri": {
+    "name": "Nuri Casting",
+    "store": "https://apps.apple.com/us/app/nuri-casting/id1661643961?uo=4",
+    "cover": "assets/apps/nuri-cover.jpg",
+    "icon": "assets/apps/nuri-icon.jpg"
+  },
+  "a2z": {
+    "name": "in.a2zshop",
+    "pkg": "in.a2zshop",
+    "store": "https://play.google.com/store/apps/details?id=in.a2zshop",
+    "cover": "assets/apps/a2z-cover.jpg",
+    "icon": "assets/apps/a2z-icon.jpg"
+  }
+}
